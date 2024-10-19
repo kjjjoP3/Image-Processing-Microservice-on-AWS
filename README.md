@@ -1,24 +1,28 @@
-# Full Stack Apps on AWS Project
+# Image Processing Microservice on AWS
 
-You have been hired as a software engineer to develop an application that will help the FBI find missing people.  The application will upload images to the FBI cloud database hosted in AWS. This will allow the FBI to run facial recognition software on the images to detect a match. You will be developing a NodeJS server and deploying it on AWS Elastic Beanstalk. 
-You will build upon the application we've developed during the lessons in this course. You'll complete a REST API endpoint in a backend service that processes incoming image URLs.
+### Project Overview
 
-## Getting Started
+This microservice processes images by applying a filter and is deployed on AWS Elastic Beanstalk.
 
-You can clone this repo to run the project locally, or navigate to the workspace in the Udacity course.
+### Deployment URL:
 
-## Project Instructions
+### The Checklist
+URL (BeanStack): http://image-processing-microservice-on-aws-dev.us-east-1.elasticbeanstalk.com/
 
-To complete this project, you will need to:
+* [X]  Deploying the code successfully
+* [X]  Pass the test after deploying
 
-* Set up node environment
-* Create a new endpoint in the server.js file
-* Deploying your system
+### Testing
 
-## Testing
+Testing URL in success case: (status `200` with filtered image)
 
-Successful URL responses should have a 200 code. Ensure that you include error codes for the scenario that someone uploads something other than an image and for other common errors.
+* BeanStack URL: http://image-processing-microservice-on-aws-dev.us-east-1.elasticbeanstalk.com/filteredimage?image_url=https://www.vietnamworks.com/hrinsider/wp-content/uploads/2023/12/anh-dep-thien-nhien-3d-003.jpg
 
-## License
+Testing URL in failure case (don't have image_url in param): (status `400` with error message)
 
-[License](LICENSE.txt)
+* BeanStack URL: http://image-processing-microservice-on-aws-dev.us-east-1.elasticbeanstalk.com/filteredimage?image_url=
+
+Testing URL in failure case (function `filterImageFromURL` not working):
+(status `422` with error message)
+
+* BeanStack URL: http://image-processing-microservice-on-aws-dev.us-east-1.elasticbeanstalk.com/filteredimage?image_url=https://www.vietnamworks.com/hrinsider/wp-content/uploads/2023/12/anh-dep-thien-nhien-3d-0013.jpg
